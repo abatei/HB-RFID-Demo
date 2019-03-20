@@ -1,0 +1,23 @@
+﻿<Window x:Class="HB_RFID_Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HB_RFID_Demo"
+        mc:Ignorable="d"
+        Title="HR8002读卡器上位机Demo   IOT小分队：www.iotxfd.cn" Height="400" Width="600" Loaded="Window_Loaded">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Background="#DDD">
+                <MenuItem Header="实验">
+                    <MenuItem Header="ISO14443A">
+                        <MenuItem Header="感应多张卡片" Click="MI_SelMulti_Click"/>
+                        <MenuItem Header="证实" Click="MI_Authentication_Click"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="串口配置" Click="MI_ComConfig_Click"></MenuItem>
+            </Menu>
+            <ContentControl Name="ccPage"/>
+        </DockPanel>
+    </Grid>
+</Window>
