@@ -445,7 +445,7 @@ namespace HBLib.ISO15693
         {
             FrameBase frame = new FrameBase(0x0E, Com_adr);
             byte[] db = frame.DataBlock;
-            db[2] = I15693Cmd.WriteAFI;
+            db[2] = I15693Cmd.WriteDSFID;
             //压入 State
             if (type == I15693CardType.TypeA) //为 A 类电子标签时
             {
@@ -755,7 +755,7 @@ namespace HBLib.ISO15693
 
         protected ReadMultipleBlockInfo HandleReadMultipleBlockFrame(I15693BlockLen blockLen, byte[] frame)
         {
-            int dataLen = frame.Length - 6;
+            int dataLen = frame.Length - 5;
             ReadMultipleBlockInfo info = new ReadMultipleBlockInfo(blockLen, frame);
             ReturnMessage returnCode = CheckFrame(info);
             if (returnCode != ReturnMessage.Success)

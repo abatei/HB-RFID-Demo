@@ -69,6 +69,9 @@ namespace HBLib.ISO15693
 
     public class ReadMultipleBlockInfo : InfoBase
     {
+        /// <summary>
+        /// 带锁定状态的数据
+        /// </summary>
         public byte[] Data { get; set; }
         private int blockLen;
 
@@ -84,7 +87,10 @@ namespace HBLib.ISO15693
         {
             return FrameBase.ByteSetToString(Data);
         }
-
+        /// <summary>
+        /// 获取不带锁定状态的数据
+        /// </summary>
+        /// <returns></returns>
         public byte[] GetBlockData()
         {
             int count = Data.Length / (blockLen + 1); //读取的块的个数
